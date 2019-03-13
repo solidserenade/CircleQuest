@@ -1,0 +1,17 @@
+body
+{
+  background-color: gold;
+}
+
+.tag
+{
+  background-color: red;
+  border-color: red;
+}
+
+.buttons
+{
+  border-radius: 50%;
+  width: 100pt;
+  height: 100pt;
+}
