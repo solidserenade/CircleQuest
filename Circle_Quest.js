@@ -1,6 +1,6 @@
 window.onload = function()
 {
-  let buttonQuantity = 8, // кол-во кнопок
+  let buttonQuantity = 20, // кол-во кнопок
       buttonArray = [];   // для исключения повторений при нажатии кнопок
 
 
@@ -16,18 +16,18 @@ window.onload = function()
     let arrToRandom = buttonArray.slice(0);
     arrToRandom.splice(index,1);
 
-    let firstRandomNum = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1);
-    console.log (firstRandomNum, arrToRandom, arrToRandom.length);
+    let firstRandomNum = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1),
+        lastRandomNum = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1);
 
-    let firstElem = pushBtn.bind(elem);
-    let otherElem = pushBtn.bind(btnRow[firstRandomNum]);
+    let zeeroElem = pushBtn.bind(elem);
+    let firstElem = pushBtn.bind(btnRow[firstRandomNum]);
+    let lastElem = pushBtn.bind(btnRow[lastRandomNum]);
 
     elem.onclick = ()=>{
+      zeeroElem();
       firstElem();
-      otherElem()
+      lastElem();
     };
-    // let otherElem = pushBtn.bind(btnRow[0]);
-    // elem.onclick = otherElem;
   });
 }
 
