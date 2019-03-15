@@ -1,17 +1,42 @@
 body
 {
-  background-color: gold;
+  background-color: lightgreen;
 }
 
-.tag
+.buttonBox
 {
-  background-color: red;
-  border-color: red;
+  /* border: 1px solid grey; */
+  width: 90%;
+  height: 90%;
 }
 
 .buttons
 {
-  border-radius: 50%;
+  background-color: lightblue;
+  border-color: lightblue;
+  border-radius: 10%;
   width: 100pt;
   height: 100pt;
+}
+
+.tag
+{
+  background-color: gold;
+  border-color: gold;
+}
+
+#clickCountField
+{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: coral;
+  border: 2px solid coral;
+}
+
+.winner
+{
+  background-color: white;
+  width: 200px;
+  height: 100px;
 }
