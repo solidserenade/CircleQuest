@@ -1,16 +1,17 @@
 window.onload = function()
 {
-  let buttonQuantity = 20, // кол-во кнопок
+  let buttonQuantity = 16, // кол-во кнопок
       buttonArray = [];   // для исключения повторений при нажатии кнопок
 
 
   for(let i = 0; i<buttonQuantity; i++)
   { // вывод кнопок на экран
-    createCircle (document.body);
+    createButton (buttonBox); // Вставка кновки в div id="buttonBox"
     buttonArray.push(i);
   }
 
-  let btnRow = document.querySelectorAll(".buttons");
+  let btnRow = document.querySelectorAll(".buttons"); // коллекция кнопок
+  // console.log (btnRow[0].className);
   btnRow.forEach((elem,index)=>{
 
     let arrToRandom = buttonArray.slice(0);
@@ -26,12 +27,23 @@ window.onload = function()
     elem.onclick = ()=>{
       zeeroElem();
       firstElem();
-      lastElem();
+      //lastElem();
+
+      let btnArr = [];
+      for (let i = 0; i < btnRow.length; i++){
+        btnRow[i].className == "buttons tag" ? btnArr.push(1) : btnArr.push(0);
+      };
+      if (btnArr.every((elem)=>{
+        return elem == 1;
+      })){
+        document.write ("Winner!")
+      }else{clickCountField.value++}
     };
   });
 }
 
-// Функции
+
+// ================== Функции ==================
 function randomInteger(min, max)
 {
   var rand = min - 0.5 + Math.random() * (max - min + 1)
@@ -45,7 +57,7 @@ function pushBtn ()
   this.classList.toggle("tag");
 }
 
-// Функция создания счётчика
+// Создание счётчика
 function getcounter()
 {
   let count = 0;
@@ -55,13 +67,20 @@ function getcounter()
   }
 }
 
-// Функция создания окружностей
-function createCircle (context)
+// Создание кнопок
+function createButton (context)
 {
-  let circleCount = getcounter();
-  let circle = document.createElement('input');
-  circle.setAttribute('type','button');
-  circle.className = "buttons";
-  circle.id = circleCount;
-  context.appendChild(circle);
+  let buttonCount = getcounter();
+  let button = document.createElement('input');
+  button.setAttribute('type','button');
+  button.className = "buttons";
+  button.id = buttonCount;
+  context.appendChild(button);
+}
+
+// ================== win Field ==================
+function winBox ()
+{
+  let winBox = document.createElement("div");
+  winBox.className = "winner";
 }
