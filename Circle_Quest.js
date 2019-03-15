@@ -6,32 +6,44 @@ window.onload = function()
 
   for(let i = 0; i<buttonQuantity; i++)
   { // вывод кнопок на экран
-    createCircle (document.body);
+    createButton (buttonBox); // Вставка кновки в div id="buttonBox"
     buttonArray.push(i);
   }
 
-  let btnRow = document.querySelectorAll(".buttons");
+  let btnRow = document.querySelectorAll(".buttons"); // коллекция кнопок
+  // console.log (btnRow[0].className);
   btnRow.forEach((elem,index)=>{
 
     let arrToRandom = buttonArray.slice(0);
     arrToRandom.splice(index,1);
 
-    let firstRandomNum = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1);
-    console.log (firstRandomNum, arrToRandom, arrToRandom.length);
+    let firstRandomNum = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1),
+        lastRandomNum = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1);
 
-    let firstElem = pushBtn.bind(elem);
-    let otherElem = pushBtn.bind(btnRow[firstRandomNum]);
+    let zeeroElem = pushBtn.bind(elem);
+    let firstElem = pushBtn.bind(btnRow[firstRandomNum]);
+    let lastElem = pushBtn.bind(btnRow[lastRandomNum]);
 
     elem.onclick = ()=>{
+      zeeroElem();
       firstElem();
-      otherElem()
+      //lastElem();
+
+      let btnArr = [];
+      for (let i = 0; i < btnRow.length; i++){
+        btnRow[i].className == "buttons tag" ? btnArr.push(1) : btnArr.push(0);
+      };
+      if (btnArr.every((elem)=>{
+        return elem == 1;
+      })){
+        document.write ("Winner!")
+      }else{clickCountField.value++}
     };
-    // let otherElem = pushBtn.bind(btnRow[0]);
-    // elem.onclick = otherElem;
   });
 }
 
-// Функции
+
+// ================== Функции ==================
 function randomInteger(min, max)
 {
   var rand = min - 0.5 + Math.random() * (max - min + 1)
@@ -45,7 +57,7 @@ function pushBtn ()
   this.classList.toggle("tag");
 }
 
-// Функция создания счётчика
+// Создание счётчика
 function getcounter()
 {
   let count = 0;
@@ -55,13 +67,20 @@ function getcounter()
   }
 }
 
-// Функция создания окружностей
-function createCircle (context)
+// Создание кнопок
+function createButton (context)
 {
-  let circleCount = getcounter();
-  let circle = document.createElement('input');
-  circle.setAttribute('type','button');
-  circle.className = "buttons";
-  circle.id = circleCount;
-  context.appendChild(circle);
+  let buttonCount = getcounter();
+  let button = document.createElement('input');
+  button.setAttribute('type','button');
+  button.className = "buttons";
+  button.id = buttonCount;
+  context.appendChild(button);
+}
+
+// ================== win Field ==================
+function winBox ()
+{
+  let winBox = document.createElement("div");
+  winBox.className = "winner";
 }
