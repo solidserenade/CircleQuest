@@ -5,9 +5,12 @@ body
 
 .buttonBox
 {
-  border: 1px solid grey;
-  width: 90%;
-  height: 90%;
+  border: 1px solid black;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  margin-right: -40%;
+  width: 70%;
 }
 
 .buttons
@@ -15,8 +18,8 @@ body
   background-color: lightblue;
   border-color: lightblue;
   border-radius: 10%;
-  width: 100pt;
-  height: 100pt;
+  width: 100px;
+  height: 100px;
 }
 
 .tag
@@ -34,9 +37,28 @@ body
   border: 2px solid coral;
 }
 
+.whiteBack
+{
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.8;
+}
+
 .winner
 {
-  background-color: white;
-  width: 200px;
-  height: 100px;
+  position: absolute;
+  top: 35%;
+  left: 40%;
+  margin-right: -50%;
+  border-radius: 10%;
+  font-size: 28pt;
+  text-align: center;
+  color: lightblue;
+  background-color: blue;
+  width: 300px;
+  /* height: 150px; */
 }

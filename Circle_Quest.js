@@ -1,6 +1,6 @@
 window.onload = function()
 {
-  let buttonQuantity = 16, // кол-во кнопок
+  let buttonQuantity = 8, // кол-во кнопок
       buttonArray = [];   // для исключения повторений при нажатии кнопок
 
 
@@ -36,7 +36,8 @@ window.onload = function()
       if (btnArr.every((elem)=>{
         return elem == 1;
       })){
-        document.write ("Winner!")
+        whiteBack.removeAttribute("hidden");
+        winBox ();
       }else{clickCountField.value++}
     };
   });
@@ -78,9 +79,11 @@ function createButton (context)
   context.appendChild(button);
 }
 
-// ================== win Field ==================
+// ================== winner Field ==================
 function winBox ()
 {
   let winBox = document.createElement("div");
   winBox.className = "winner";
+  winBox.innerHTML = "Ну молодец, чё! Верной дорогой идёшь, товарищ.<br>Кол-во ходов: "+clickCountField.value;
+  whiteBack.appendChild(winBox);
 }
