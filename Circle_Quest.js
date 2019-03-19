@@ -1,6 +1,6 @@
 window.onload = function()
 {
-  let buttonQuantity = 8, // кол-во кнопок
+  let buttonQuantity = 12, // кол-во кнопок
       buttonArray = [];   // для исключения повторений при нажатии кнопок
 
 
@@ -11,18 +11,18 @@ window.onload = function()
   }
 
   let btnRow = document.querySelectorAll(".buttons"); // коллекция кнопок
-  // console.log (btnRow[0].className);
+
   btnRow.forEach((elem,index)=>{
 
     let arrToRandom = buttonArray.slice(0);
     arrToRandom.splice(index,1);
 
     let firstRandomNum = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1),
-        lastRandomNum = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1);
+        lastRandomNum  = arrToRandom.splice(randomInteger(1,arrToRandom.length-1),1);
 
     let zeeroElem = pushBtn.bind(elem);
     let firstElem = pushBtn.bind(btnRow[firstRandomNum]);
-    let lastElem = pushBtn.bind(btnRow[lastRandomNum]);
+    let lastElem  = pushBtn.bind(btnRow[lastRandomNum]);
 
     elem.onclick = ()=>{
       zeeroElem();
@@ -38,6 +38,7 @@ window.onload = function()
       })){
         whiteBack.removeAttribute("hidden");
         winBox ();
+        buttonBox.setAttribute("hidden","true")
       }else{clickCountField.value++}
     };
   });
@@ -76,6 +77,15 @@ function createButton (context)
   button.setAttribute('type','button');
   button.className = "buttons";
   button.id = buttonCount;
+  if (document.documentElement.clientWidth < document.documentElement.clientHeight)
+  {
+    button.style.width = buttonBox.offsetWidth/3-4+"px";
+    button.style.height = button.style.width;
+  }else{
+    button.style.width = buttonBox.offsetWidth/4-6+"px";
+    button.style.height = button.style.width;
+  }
+
   context.appendChild(button);
 }
 
