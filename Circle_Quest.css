@@ -1,19 +1,30 @@
 body
 {
-  background-color: lightgreen;
+  display: flex;
+  justify-content: center;
+  background-color: #cef6ab;
 }
 
 .buttonBox
 {
-  /* border: 1px solid grey; */
-  width: 90%;
-  height: 90%;
+  /* display: flex;
+  justify-content: center; */
+
+  /* border: 3px solid black; */
+  position: absolute;
+  top: 15%;
+  height: 70%;
+  left: 10%;
+  width: 80%;
 }
 
 .buttons
 {
-  background-color: lightblue;
-  border-color: lightblue;
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto; */
+  background-color: rgb(150, 150, 150);
+  border-color: rgb(150, 150, 150);
   border-radius: 10%;
   width: 100pt;
   height: 100pt;
@@ -21,7 +32,7 @@ body
 
 .tag
 {
-  background-color: gold;
+  background-color: rgb(255, 199, 0);
   border-color: gold;
 }
 
@@ -30,13 +41,40 @@ body
   width: 20px;
   height: 20px;
   text-align: center;
-  background-color: coral;
-  border: 2px solid coral;
+  background-color: rgb(244, 113, 255);
+  border: 2px solid rgb(230, 128, 255);
+}
+
+.whiteBack
+{
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.8;
 }
 
 .winner
 {
-  background-color: white;
-  width: 200px;
-  height: 100px;
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  /* margin-right: -50%; */
+  border: 2px solid rgb(79, 145, 173);
+  font-size: 28pt;
+  text-align: center;
+  /* color: lightblue; */
+  background-color: rgb(140, 207, 219);
+  width: 50%;
+  /* height: 150px; */
+}
+
+.reloadBtn
+{
+  /* border-radius: 10%; */
+  background-color: rgb(217, 138, 255);
+  border: 1px solid rgb(79, 145, 173);
+  font-size: 18pt;
 }
